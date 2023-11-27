@@ -2,9 +2,6 @@
 
 set -euxo pipefail
 
-# Let us set the C++ Standard
-sed -i '/CMAKE_CXX_STANDARD/d' CMakeLists.txt
-
 export CXXFLAGS="-DPROTOBUF_USE_DLLS=1 ${CXXFLAGS}"
 
 if [[ "${target_platform}" == osx-* ]]; then

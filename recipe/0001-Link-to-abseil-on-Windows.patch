@@ -1,4 +1,4 @@
-From 5dc142050be2d2a18c1d303cc6d795cd551460eb Mon Sep 17 00:00:00 2001
+From 364280bfec826a166747e045d40d90667f06617c Mon Sep 17 00:00:00 2001
 From: "Uwe L. Korn" <uwe.korn@quantco.com>
 Date: Mon, 3 Jul 2023 07:34:22 +0200
 Subject: [PATCH] Link to abseil on Windows
@@ -8,18 +8,18 @@ Subject: [PATCH] Link to abseil on Windows
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
-index eca7638..34a6441 100644
+index 6edc05e..400ae11 100644
 --- a/lib/CMakeLists.txt
 +++ b/lib/CMakeLists.txt
-@@ -65,7 +65,7 @@ if (BUILD_DYNAMIC_LIB)
+@@ -80,7 +80,7 @@ if (BUILD_DYNAMIC_LIB)
      add_library(pulsarShared SHARED $<TARGET_OBJECTS:PULSAR_OBJECT_LIB>)
      set_property(TARGET pulsarShared PROPERTY OUTPUT_NAME ${LIB_NAME_SHARED})
      set_property(TARGET pulsarShared PROPERTY VERSION ${LIBRARY_VERSION})
--    target_link_libraries(pulsarShared ${COMMON_LIBS} ${CMAKE_DL_LIBS})
-+    target_link_libraries(pulsarShared ${COMMON_LIBS} ${CMAKE_DL_LIBS} abseil_dll)
-     if (MSVC)
-         target_include_directories(pulsarShared PRIVATE ${dlfcn-win32_INCLUDE_DIRS})
-         target_link_options(pulsarShared PRIVATE $<$<CONFIG:DEBUG>:/NODEFAULTLIB:MSVCRT>)
+-    target_link_libraries(pulsarShared PRIVATE ${COMMON_LIBS} ${CMAKE_DL_LIBS})
++    target_link_libraries(pulsarShared PRIVATE ${COMMON_LIBS} ${CMAKE_DL_LIBS} abseil_dll)
+     target_include_directories(pulsarShared PUBLIC
+         ${CMAKE_SOURCE_DIR}
+         ${CMAKE_SOURCE_DIR}/include)
 -- 
-2.39.2 (Apple Git-143)
+2.39.3 (Apple Git-146)
 

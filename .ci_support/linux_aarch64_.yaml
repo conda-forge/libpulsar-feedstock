@@ -29,7 +29,7 @@ libprotobuf:
 openssl:
 - '3'
 snappy:
-- '1'
+- '1.2'
 target_platform:
 - linux-aarch64
 zip_keys:

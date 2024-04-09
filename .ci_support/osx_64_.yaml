@@ -25,14 +25,12 @@ macos_machine:
 openssl:
 - '3'
 snappy:
-- '1'
+- '1.2'
 target_platform:
 - osx-64
 zip_keys:
 - - c_compiler_version
   - cxx_compiler_version
-- - c_stdlib_version
-  - MACOSX_DEPLOYMENT_TARGET
 zlib:
 - '1.2'
 zstd:

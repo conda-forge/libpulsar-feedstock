@@ -23,7 +23,7 @@ libboost_headers:
 libcurl:
 - '8'
 libprotobuf:
-- 4.25.3
+- 5.27.5
 macos_machine:
 - x86_64-apple-darwin13.4.0
 openssl:

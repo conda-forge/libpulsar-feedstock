@@ -23,7 +23,7 @@ libboost_headers:
 libcurl:
 - '8'
 libprotobuf:
-- 5.28.3
+- 5.29.3
 openssl:
 - '3'
 snappy:

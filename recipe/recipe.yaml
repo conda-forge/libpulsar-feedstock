@@ -18,7 +18,7 @@ source:
 
 build:
   # pulsar doesn't give any ABI guarantees
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -29,8 +29,7 @@ requirements:
     - ninja
     - if: not win
       then: sed
-    - if: win
-      then: m2-sed
+      else: m2-sed
     - if: build_platform != target_platform
       then: libprotobuf
   host:
@@ -60,11 +59,9 @@ tests:
   - script:
       - if: not win
         then: test -f $PREFIX/lib/libpulsar${SHLIB_EXT}
-      - if: win
-        then: if not exist %LIBRARY_PREFIX%/bin/pulsar.dll exit 1
-      - if: win
-        then: if not exist %LIBRARY_PREFIX%/lib/pulsar.lib exit 1
-
+        else:
+          - if not exist %LIBRARY_PREFIX%/bin/pulsar.dll exit 1
+          - if not exist %LIBRARY_PREFIX%/lib/pulsar.lib exit 1
 about:
   license: Apache-2.0
   license_file: LICENSE

@@ -25,7 +25,7 @@ libcurl:
 libprotobuf:
 - 5.29.3
 libpulsar:
-- 3.7.0
+- 3.7.1
 openssl:
 - '3'
 snappy:

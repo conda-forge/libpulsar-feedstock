@@ -1,5 +1,5 @@
 {% set name = "libpulsar" %}
-{% set version = "3.7.1" %}
+{% set version = "3.7.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/apache/pulsar-client-cpp/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 72be6d311b62464b758f2789689dd81469f1abce02b46bef4f0958312117cb71
+  sha256: f0d4339168b3c5fbdbd0e3c304de9854535b70b3f5811f2f18278f1608e67c5a
   patches:
     - 0001-Link-to-abseil-on-Windows.patch  # [win and (libprotobuf != "3.21")]
     - 0001-Remove-Werror.patch

@@ -12,9 +12,9 @@ source:
   url: https://github.com/apache/pulsar-client-cpp/archive/refs/tags/v${{ version }}.tar.gz
   sha256: f0d4339168b3c5fbdbd0e3c304de9854535b70b3f5811f2f18278f1608e67c5a
   patches:
-    - if: win and (libprotobuf != "3.21")
-      then: 0001-Link-to-abseil-on-Windows.patch
     - 0001-Remove-Werror.patch
+    - 0002-Link-to-abseil-on-Windows.patch
+    - 0003-Build-with-newer-abseil.patch
 
 build:
   # pulsar doesn't give any ABI guarantees

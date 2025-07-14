@@ -12,13 +12,13 @@ source:
   url: https://github.com/apache/pulsar-client-cpp/archive/refs/tags/v${{ version }}.tar.gz
   sha256: f0d4339168b3c5fbdbd0e3c304de9854535b70b3f5811f2f18278f1608e67c5a
   patches:
-    - if: win and (libprotobuf != "3.21")
-      then: 0001-Link-to-abseil-on-Windows.patch
     - 0001-Remove-Werror.patch
+    - 0002-Link-to-abseil-on-Windows.patch
+    - 0003-Build-with-newer-abseil.patch
 
 build:
   # pulsar doesn't give any ABI guarantees
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -29,8 +29,7 @@ requirements:
     - ninja
     - if: not win
       then: sed
-    - if: win
-      then: m2-sed
+      else: m2-sed
     - if: build_platform != target_platform
       then: libprotobuf
   host:
@@ -60,11 +59,9 @@ tests:
   - script:
       - if: not win
         then: test -f $PREFIX/lib/libpulsar${SHLIB_EXT}
-      - if: win
-        then: if not exist %LIBRARY_PREFIX%/bin/pulsar.dll exit 1
-      - if: win
-        then: if not exist %LIBRARY_PREFIX%/lib/pulsar.lib exit 1
-
+        else:
+          - if not exist %LIBRARY_PREFIX%/bin/pulsar.dll exit 1
+          - if not exist %LIBRARY_PREFIX%/lib/pulsar.lib exit 1
 about:
   license: Apache-2.0
   license_file: LICENSE

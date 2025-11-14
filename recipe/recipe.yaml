@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: libpulsar
-  version: 3.7.2
+  version: "3.8.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/apache/pulsar-client-cpp/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: f0d4339168b3c5fbdbd0e3c304de9854535b70b3f5811f2f18278f1608e67c5a
+  sha256: 40db9423a1f82fafb69b1ad517132506136019d3bf2b8e89cedefb37ff067e8d
   patches:
     - 0001-Remove-Werror.patch
     - 0002-Link-to-abseil-on-Windows.patch
@@ -18,7 +18,7 @@ source:
 
 build:
   # pulsar doesn't give any ABI guarantees
-  number: 1
+  number: 0
 
 requirements:
   build:

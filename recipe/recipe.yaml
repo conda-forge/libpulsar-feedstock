@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: libpulsar
-  version: "4.0.0"
+  version: "4.0.1"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/apache/pulsar-client-cpp/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 4bcb09558d1ced113a2c7e08c60b48ce3f0e9df1eaffac300697117bb1cadbe5
+  sha256: f9a3fabe17cc029004ec8d30f01251dee3c9f91bf22dae4eb45a7ff0ee3ca391
   patches:
     - 0001-Remove-Werror.patch
     - 0002-Link-to-abseil-on-Windows.patch

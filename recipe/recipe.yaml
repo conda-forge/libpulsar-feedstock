@@ -18,7 +18,7 @@ source:
 
 build:
   # pulsar doesn't give any ABI guarantees
-  number: 0
+  number: 1
 
 requirements:
   build:

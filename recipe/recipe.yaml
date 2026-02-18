@@ -15,10 +15,10 @@ source:
     - 0001-Remove-Werror.patch
     - 0002-Link-to-abseil-on-Windows.patch
     - 0003-Build-with-newer-abseil.patch
+    - b3edc60c5ca46c1df7e0090f7e418a684fd21553.patch
 
 build:
-  # pulsar doesn't give any ABI guarantees
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -48,6 +48,7 @@ requirements:
     - zlib
     - zstd
   run_exports:
+    # pulsar doesn't give any ABI guarantees
     - ${{ pin_subpackage('libpulsar', upper_bound='x.x.x') }}
   ignore_run_exports:
     by_name:

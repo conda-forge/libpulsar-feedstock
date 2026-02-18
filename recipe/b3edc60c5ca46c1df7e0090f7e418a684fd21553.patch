@@ -1,0 +1,23 @@
+From b3edc60c5ca46c1df7e0090f7e418a684fd21553 Mon Sep 17 00:00:00 2001
+From: Andrew Rhoads <andrew.c.rhoads@gmail.com>
+Date: Tue, 3 Feb 2026 20:54:34 -0800
+Subject: [PATCH] Fix use of deprecated Boost Asio API (#535)
+
+expires_from_now is deprecated and it is now recommended to use expires_after
+---
+ lib/MockServer.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/MockServer.h b/lib/MockServer.h
+index 8e4a2136..bd413d33 100644
+--- a/lib/MockServer.h
++++ b/lib/MockServer.h
+@@ -112,7 +112,7 @@ class MockServer : public std::enable_shared_from_this<MockServer> {
+                   std::function<void()>&& task) {
+         auto timer = connection->executor_->createDeadlineTimer();
+         pendingTimers_[key] = timer;
+-        timer->expires_from_now(std::chrono::milliseconds(delayMs));
++        timer->expires_after(std::chrono::milliseconds(delayMs));
+         LOG_INFO("Mock scheduling " << key << " with delay " << delayMs << " ms");
+         auto self = shared_from_this();
+         timer->async_wait([this, self, key, connection, task{std::move(task)}](const auto& ec) {

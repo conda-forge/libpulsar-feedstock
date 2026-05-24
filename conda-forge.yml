@@ -1,3 +1,7 @@
+azure:
+  settings_win:
+    pool: 
+      vmImage: windows-2025-vs2026
 bot:
   automerge: true
 build_platform:

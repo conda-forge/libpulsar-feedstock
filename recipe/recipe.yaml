@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: libpulsar
-  version: "4.1.0"
+  version: "4.2.0"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://github.com/apache/pulsar-client-cpp/archive/refs/tags/v${{ version }}.tar.gz
-  sha256: 172c9697caf62551c336e0bf64a136ccdff0674e9ea66f94f3f60962c5d41958
+  sha256: 239e36fad596cb99218bb59bd3113363bcb2f759284545318f24ae26f426c5b4
   patches:
     - 0001-Remove-Werror.patch
     - 0002-Link-to-abseil-on-Windows.patch
@@ -19,7 +19,7 @@ source:
     - 0004-Fix-boost-asio-cancel-API.patch
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:

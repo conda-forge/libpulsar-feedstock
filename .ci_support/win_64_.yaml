@@ -19,7 +19,7 @@ libprotobuf:
 openssl:
 - '3.5'
 snappy:
-- '1.2'
+- '1.3'
 target_platform:
 - win-64
 zlib:
